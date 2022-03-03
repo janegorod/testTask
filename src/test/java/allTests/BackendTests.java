@@ -19,6 +19,8 @@ import java.net.http.HttpResponse;
 
 import static org.junit.Assert.assertEquals;
 
+import resources.Service;
+
 public class BackendTests {
 
     @BeforeClass
@@ -26,19 +28,18 @@ public class BackendTests {
     }
          @Test
     public void useSpec() throws IOException {
-            URL host = new URL("https://api.whisk-dev.com/");
-            HttpURLConnection http = (HttpURLConnection)host.openConnection();
-            http.setRequestMethod("POST");
-            http.setDoOutput(true);
+         URL host = new URL("https://api.whisk-dev.com/");
+         HttpURLConnection http = (HttpURLConnection)host.openConnection();
+         http.setRequestMethod("POST");
+         http.setDoOutput(true);
 
-            http.setRequestMethod("POST");
-            http.setRequestProperty("Content-Type", "application/json");
-            http.setRequestProperty("Accept", "application/json");
-            http.setRequestProperty("Authorization", "Bearer {4S6sAfpswCnp0N32xLv5VYgyrdVDCa1ENK0KA781GrzvGRgSlTxQFa5SaH6UPbIL}");
+         http.setRequestMethod("POST");
+         http.setRequestProperty("Content-Type", "application/json");
+         http.setRequestProperty("Accept", "application/json");
+         http.setRequestProperty("Authorization", "Bearer {4S6sAfpswCnp0N32xLv5VYgyrdVDCa1ENK0KA781GrzvGRgSlTxQFa5SaH6UPbIL}");
 
-            //http.setRequestProperty("Content-Length", "0");
-
-             String jsonInputString = "{\"name\": \"Upendra\", \"primary\": \"false\"}";
+         //http.setRequestProperty("Content-Length", "0");
+         String jsonInputString = "{\"name\": \"Upendra\", \"primary\": \"false\"}";
           /*   {
                  "name": "string",
                      "primary": false
@@ -62,7 +63,5 @@ public class BackendTests {
             System.out.println(http.getResponseCode() + " " + http.getResponseMessage());
             http.disconnect();
 
-
         }
-
 }
